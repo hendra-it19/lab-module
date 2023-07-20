@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Property;
-use Exception;
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // navigasi ke index
     public function index()
     {
         $title = 'properties';
@@ -18,18 +15,14 @@ class PropertyController extends Controller
         return view('dashboardpages.properties.index', compact('title', 'data'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // navigasi ke view create
     public function create()
     {
         $title = 'properties';
         return view('dashboardpages.properties.create', compact('title'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // simpan data
     public function store(Request $request)
     {
         $request->validate([
@@ -54,27 +47,21 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')->with('success', 'Data Properti Berhasil Ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // navigasi ke view show
     public function show(Property $property)
     {
         $title = 'properties';
         return view('dashboardpages.properties.show', compact('title', 'property'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // navigasi ke view edit
     public function edit(Property $property)
     {
         $title = 'properties';
         return view('dashboardpages.properties.edit', compact('title', 'property'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // update data
     public function update(Request $request, Property $property)
     {
         $request->validate([
@@ -106,9 +93,7 @@ class PropertyController extends Controller
         return redirect()->route('properties.index')->with('success', 'Data berhasil di update');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // Hapus Data
     public function destroy(Property $property)
     {
         unlink($property->foto);

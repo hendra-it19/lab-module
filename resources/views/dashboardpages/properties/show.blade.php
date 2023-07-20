@@ -5,7 +5,8 @@
         <h5 class="card-title fw-semibold mb-4">Detail Data {{ $property->nama_properti }}</h5>
         <div class="container-fluid">
             <div class="row">
-                <img src="{{ asset($property->foto) }}" alt="" class="img img-thumbnail img-responsive" style="width:300px">
+                <img src="{{ asset($property->foto) }}" alt="" class="img img-thumbnail img-responsive"
+                    style="width:300px">
             </div>
             <div class="row mt-3">
                 <h5>Lokasi</h5>
@@ -20,5 +21,4 @@
             </div>
         </div>
     </div>
-
 @endsection

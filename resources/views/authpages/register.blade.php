@@ -24,23 +24,52 @@
                                     <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
                                 <p class="text-center">Your Social Campaigns</p>
-                                <form>
+                                <form method="post" action="{{ route('register.post') }}">
+                                    @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputtext1" class="form-label">Name</label>
-                                        <input type="text" class="form-control" id="exampleInputtext1"
+                                        <label for="name" class="form-label">Name</label>
+                                        <input type="text" name="name"
+                                            class="form-control @error('name') is-invalid @enderror" id="name"
                                             aria-describedby="textHelp">
+                                        @error('name')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Username</label>
+                                        <input type="text" name="username"
+                                            class="form-control @error('username') is-invalid @enderror" id="username"
+                                            aria-describedby="textHelp">
+                                        @error('username')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <input type="email" name="email"
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            id="exampleInputEmail1" aria-describedby="emailHelp">
+                                        @error('email')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="exampleInputPassword1" class="form-label">Password</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                                            id="exampleInputPassword1">
+                                        @error('password')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
                                     </div>
-                                    <button type="submit" href=""
-                                        class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
+                                    <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
                                         Up</button>
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
